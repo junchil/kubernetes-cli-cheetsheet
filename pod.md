@@ -1,28 +1,38 @@
 ### pod
 
-**Creat a pod**
+**1**
 ```bash
 kubectl run nginx --image=nginx
 ```
 
+
+**2**
 ```bash
 kubectl run redis --image=redis123 --dry-run=client -o yaml > redis.yaml
 ```
 
+
+**3**
 ```bash
 kubectl describe pod newpods | grep -w Image
 ```
 
+
+**4**
 ```bash
 kubectl config use-context k8s
 kubectl logs foobar | grep file-not-found > /opt/KULM00201/foobar
 ```
 
+
+**5**
 ```bash
 kubectl config use-context k8s
 kubectl top pods -l name=cpu-utilizer
 ```
 
+
+**6**
 https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/
 ```yaml
 apiVersion: v1
@@ -40,6 +50,8 @@ spec:
     disktype: ssd
 ```
 
+
+**7**
 https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-initialization/#creating-a-pod-that-has-an-init-container
 ```yaml
 apiVersion: v1
@@ -74,6 +86,8 @@ spec:
     emptyDir: {}
 ```
 
+
+**8**
 https://kubernetes.io/docs/concepts/storage/volumes/#emptydir
 ```yaml
 apiVersion: v1
@@ -95,6 +109,7 @@ spec:
 ```
 
 
+**9**
 https://kubernetes.io/docs/tasks/configure-pod-container/static-pod/
 ```bash
 ssh wk8s-node-1
@@ -124,6 +139,13 @@ systemctl enable kubelet
 ```
 
 
+**10**
 ```bash
 kubectl get pods -l app=test-service-deploy | grep -v NAME | awk '{print $1}'
+```
+
+
+**11**
+```bash
+kubectl expose pod front-end --name=front-end-service --type='NodePort' --port=80
 ```

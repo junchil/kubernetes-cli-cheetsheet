@@ -44,4 +44,10 @@ spec:
           - example-node
 ```
 
+
+```bash
+kubectl --all-namespaces get pv --sort-by=spec.capacity.storage
+```
+
+
 ### pvc
