@@ -1,7 +1,9 @@
 ### daemonSet
 
+https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/#create-a-daemonset
+
 ```bash
-kubectl run nginx --image=nginx:1.17.1 -o yaml > nginx-daemonset.yaml
+kubectl create deployment nginx --image=nginx:1.17.1 -o yaml > nginx-daemonset.yaml
 ```
 
 ```yaml

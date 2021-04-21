@@ -1,6 +1,11 @@
 ### pod
+
+**Creat a pod**
 ```bash
 kubectl run nginx --image=nginx
+```
+
+```bash
 kubectl run redis --image=redis123 --dry-run=client -o yaml > redis.yaml
 ```
 
@@ -11,6 +16,11 @@ kubectl describe pod newpods | grep -w Image
 ```bash
 kubectl config use-context k8s
 kubectl logs foobar | grep file-not-found > /opt/KULM00201/foobar
+```
+
+```bash
+kubectl config use-context k8s
+kubectl top pods -l name=cpu-utilizer
 ```
 
 https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/
@@ -85,3 +95,30 @@ spec:
 ```
 
 
+https://kubernetes.io/docs/tasks/configure-pod-container/static-pod/
+```bash
+ssh wk8s-node-1
+
+cat <<EOF >/etc/kubelet.d/manifests/static-web.yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: static-web
+  labels:
+    role: myrole
+spec:
+  containers:
+    - name: web
+      image: nginx
+      ports:
+        - name: web
+          containerPort: 80
+          protocol: TCP
+EOF
+
+systemctl daemon-reload
+
+systemctl restart kubelet
+
+systemctl enable kubelet
+```

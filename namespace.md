@@ -15,3 +15,8 @@ spec:
     image: jenkins
     imagePullPolicy: IfNotPresent
 ```
+
+```bash
+kubectl create ns test
+kubectl run nginx-test -n test --image=nginx
+```

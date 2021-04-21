@@ -1,5 +1,7 @@
 ### secret
 
+https://kubernetes.io/docs/concepts/configuration/secret/#using-secrets
+
 ```bash
 kubectl create secret generic super-secret --from-literal=credential=alice --from-literal=username=bob  
 ```

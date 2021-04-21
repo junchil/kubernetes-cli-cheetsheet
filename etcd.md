@@ -1,5 +1,7 @@
 ### etcd
 
+https://kubernetes.io/docs/tasks/administer-cluster/configure-upgrade-etcd/#backing-up-an-etcd-cluster
+
 ```bash
 ETCDCTL_API=3 etcdctl --endpoints=https://127.0.0.1:2379 \
   --cacert=<trusted-ca-file> --cert=<cert-file> --key=<key-file> \
