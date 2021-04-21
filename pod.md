@@ -57,10 +57,10 @@ spec:
     - name: workdir
       mountPath: /workdir
     livenessProbe:
-	  exec:
-	    command:
-		- cat
-		- /workdir/calm.txt
+      exec:
+        command:
+        - cat
+        - /workdir/calm.txt
   # These containers are run during pod initialization
   initContainers:
   - name: install
@@ -121,4 +121,9 @@ systemctl daemon-reload
 systemctl restart kubelet
 
 systemctl enable kubelet
+```
+
+
+```bash
+kubectl get pods -l app=test-service-deploy | grep -v NAME | awk '{print $1}'
 ```
